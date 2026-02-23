@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Practica2Listas",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Practica2Listas::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Practica2Listas-Debug-57bb195086ef8123b8f6.json",
+					"name" : "Practica2Listas",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/jmart/Documents/GitHub/Ingenieria-Informatica/SegundoAnyo/SegundoCuatri/Calidad/Practicas/Practica1/Practica2Listas/cmake-build-debug",
+		"source" : "C:/Users/jmart/Documents/GitHub/Ingenieria-Informatica/SegundoAnyo/SegundoCuatri/Calidad/Practicas/Practica1/Practica2Listas"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

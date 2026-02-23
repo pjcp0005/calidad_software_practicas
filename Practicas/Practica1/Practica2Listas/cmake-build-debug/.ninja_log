@@ -1,0 +1,7 @@
+# ninja log v6
+39	325	7935450570548440	CMakeFiles/Practica2Listas.dir/src/utils.cpp.obj	24b4a9c9e28a768e
+22	372	7935450570378274	CMakeFiles/Practica2Listas.dir/src/PaMedicamento.cpp.obj	f9140f72ba58f8a4
+31	379	7935450570468448	CMakeFiles/Practica2Listas.dir/src/Laboratorio.cpp.obj	ce9f092438e17185
+6	499	7935450570218274	CMakeFiles/Practica2Listas.dir/src/main.cpp.obj	443dfa7f64b7d212
+15	562	7935450570308270	CMakeFiles/Practica2Listas.dir/src/MediExpress.cpp.obj	f2db87f483b8929
+562	855	7935450575779690	Practica2Listas.exe	c3484cafb191e540

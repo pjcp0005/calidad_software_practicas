@@ -1,0 +1,3 @@
+C:/Users/jmart/Documents/GitHub/Ingenieria-Informatica/SegundoAnyo/SegundoCuatri/Calidad/Practicas/Practica1/Practica2Listas/cmake-build-debug/CMakeFiles/Practica2Listas.dir
+C:/Users/jmart/Documents/GitHub/Ingenieria-Informatica/SegundoAnyo/SegundoCuatri/Calidad/Practicas/Practica1/Practica2Listas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/jmart/Documents/GitHub/Ingenieria-Informatica/SegundoAnyo/SegundoCuatri/Calidad/Practicas/Practica1/Practica2Listas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
