@@ -1,0 +1,17 @@
+[
+  {
+    "directory": "C:/RUTA/ABSOLUTA/DE/TU/CARPETA",
+    "command": "g++ -c main.cpp",
+    "file": "main.cpp"
+  },
+  {
+    "directory": "C:/RUTA/ABSOLUTA/DE/TU/CARPETA",
+    "command": "g++ -c archivo1.cpp",
+    "file": "archivo1.cpp"
+  },
+  {
+    "directory": "C:/RUTA/ABSOLUTA/DE/TU/CARPETA",
+    "command": "g++ -c archivo2.cpp",
+    "file": "archivo2.cpp"
+  }
+]
