@@ -1,27 +1,27 @@
 [
   {
-    "directory": "C:/dev/repositorios/calidad_software_practicas/practica1",
-    "command": "g++ -c src/main.cpp",
-    "file": "src/main.cpp"
+    "directory": "C:/GitHub/calidad_software_practicas/practica1/src",
+    "command": "g++ -c main.cpp",
+    "file": "main.cpp"
   },
   {
-    "directory": "C:/dev/repositorios/calidad_software_practicas/practica1",
-    "command": "g++ -c src/Laboratorio.cpp",
+    "directory": "C:/GitHub/calidad_software_practicas/practica1/src",
+    "command": "g++ -c Laboratorio.cpp",
     "file": "src/Laboratorio.cpp"
   },
   {
-    "directory": "C:/dev/repositorios/calidad_software_practicas/practica1",
-    "command": "g++ -c src/MediExpress.cpp",
+    "directory": "C:/GitHub/calidad_software_practicas/practica1/src",
+    "command": "g++ -c MediExpress.cpp",
     "file": "src/MediExpress.cpp"
   },
   {
-    "directory": "C:/dev/repositorios/calidad_software_practicas/practica1",
-    "command": "g++ -c src/PaMedicamento.cpp",
+    "directory": "C:/GitHub/calidad_software_practicas/practica1/src",
+    "command": "g++ -c PaMedicamento.cpp",
     "file": "src/PaMedicamento.cpp"
   },
   {
-    "directory": "C:/dev/repositorios/calidad_software_practicas/practica1",
-    "command": "g++ -c src/utils.cpp",
+    "directory": "C:/GitHub/calidad_software_practicas/practica1/src",
+    "command": "g++ -c utils.cpp",
     "file": "src/utils.cpp"
   }
 ]

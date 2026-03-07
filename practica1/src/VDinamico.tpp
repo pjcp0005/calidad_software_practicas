@@ -1,6 +1,12 @@
-//
-// Created by jmart on 08/10/2025.
-//
+/**
+ * @file VDinamico.tpp
+ * @author Francisco Javier Martín-Lunas Escobar (fjme0008@red.ujaen.es)
+ * @brief Implementación de la clase plantilla VDinamico.
+ * @version 0.1
+ * @date 2025-10-08
+ *
+ * @copyright Copyright (c) 2026
+ */
 
 /*
 * Metodos privados

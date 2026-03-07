@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @author Francisco Javier Martín-Lunas Escobar (fjme0008@red.ujaen.es)
+ * @brief Punto de entrada del programa. Pruebas de ListaEnlazada y MediExpress.
+ * @version 0.1
+ * @date 2025-10-08
+ *
+ * @copyright Copyright (c) 2026
+ */
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -7,6 +16,10 @@
 #include "../include/PaMedicamento.h"
 #include "../include/MediExpress.h"
 
+/**
+ * @brief Imprime por consola los elementos de una ListaEnlazada<int>.
+ * @param lista Lista enlazada de enteros a mostrar.
+ */
 void mostrarLista(const ListaEnlazada<int> &lista) {
     auto it = lista.iterator();
     std::cout << "[ ";
@@ -18,7 +31,8 @@ void mostrarLista(const ListaEnlazada<int> &lista) {
 }
 
 /**
- * @brief Muestra un separador visual con un título
+ * @brief Imprime por consola un separador visual con un título centrado.
+ * @param titulo Texto a mostrar como título del separador.
  */
 void separador(const std::string &titulo) {
     std::cout << "=======================================================================================================================" << std::endl;
@@ -27,7 +41,10 @@ void separador(const std::string &titulo) {
 }
 
 /**
- * @author Francisco Javier Martín-Lunas Escobar fjme0008@red.ujaen.es
+ * @brief Función principal. Ejecuta las pruebas de ListaEnlazada<int> y del sistema MediExpress.
+ * @param argc Número de argumentos de línea de comandos.
+ * @param argv Vector de cadenas con los argumentos de línea de comandos.
+ * @return 0 si la ejecución finaliza correctamente.
  */
 int main(int argc, const char *argv[]) {
     try {

@@ -1,6 +1,12 @@
-//
-// Created by jmart on 18/10/2025.
-//
+/**
+ * @file utils.cpp
+ * @author Francisco Javier Martín-Lunas Escobar (fjme0008@red.ujaen.es)
+ * @brief Implementación de las utilidades de manipulación de cadenas.
+ * @version 0.1
+ * @date 2025-10-18
+ *
+ * @copyright Copyright (c) 2026
+ */
 #include "../include/utils.h"
 #include <algorithm>
 #include <cctype>
