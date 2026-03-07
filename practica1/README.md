@@ -40,3 +40,15 @@ Practica2Listas/
 - **`src/`** → Implementaciones en C++.
 - **`data/`** → Archivos CSV de prueba.
 - **`Makefile` / `CMakeLists.txt`** → Archivos para automatizar la compilación.
+
+## Warnings de SonarQube
+
+Warnings detectados con SonarLint al filtrar con `!sonar` en la pestaña **Problemas** de VS Code.
+
+### No corregidos
+
+| Archivo | Línea | Regla | Descripción | Justificación |
+|---|---|---|---|---|
+| [PaMedicamento.h](include/PaMedicamento.h) | 55 | `cpp:S2807` | `operator==` debería ser un *hidden friend* en lugar de miembro. | Cambiar a `friend` modificaría la interfaz pública de la clase y podría romper código existente que depende de la llamada como miembro. Se mantiene como miembro para preservar la coherencia con `operator<`. |
+| [PaMedicamento.h](include/PaMedicamento.h) | 62 | `cpp:S2807` | `operator<` debería ser un *hidden friend* en lugar de miembro. | Misma justificación que `operator==`. Ambos operadores se mantienen como miembros para coherencia interna. |
+| [Laboratorio.h](include/Laboratorio.h) | 62 | `cpp:S2807` | `operator==` debería ser un *hidden friend* en lugar de miembro. | Misma justificación. El operador se mantiene como miembro para no alterar la interfaz ya utilizada en `MediExpress`. |
