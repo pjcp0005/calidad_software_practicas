@@ -1,6 +1,12 @@
-//
-// Created by jmart on 08/10/2025.
-//
+/**
+ * @file MediExpress.cpp
+ * @author Francisco Javier Martín-Lunas Escobar (fjme0008@red.ujaen.es)
+ * @brief Implementación de la clase MediExpress.
+ * @version 0.1
+ * @date 2025-10-08
+ *
+ * @copyright Copyright (c) 2026
+ */
 #include "../include/MediExpress.h"
 #include "../include/utils.h"
 #include <fstream>
