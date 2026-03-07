@@ -1,6 +1,12 @@
-//
-// Created by jmart on 18/10/2025.
-//
+/**
+ * @file utils.h
+ * @author Francisco Javier Martín-Lunas Escobar (fjme0008@red.ujaen.es)
+ * @brief Utilidades de manipulación de cadenas: normalización a minúsculas y búsqueda case-insensitive.
+ * @version 0.1
+ * @date 2025-10-18
+ *
+ * @copyright Copyright (c) 2026
+ */
 
 #ifndef UTILS_H
 #define UTILS_H
