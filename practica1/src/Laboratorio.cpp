@@ -1,6 +1,12 @@
-//
-// Created by jmart on 08/10/2025.
-//
+/**
+ * @file Laboratorio.cpp
+ * @author Francisco Javier Martín-Lunas Escobar (fjme0008@red.ujaen.es)
+ * @brief Implementación de la clase Laboratorio.
+ * @version 0.1
+ * @date 2025-10-08
+ *
+ * @copyright Copyright (c) 2026
+ */
 #include "../include/Laboratorio.h"
 
 /**
