@@ -1,0 +1,9 @@
+<map id="MediExpress::buscarCompuesto" name="MediExpress::buscarCompuesto">
+<area shape="rect" id="Node000001" title="Busca medicamentos cuyo nombre contenga el compuesto dado (sin distinción de mayúsculas)." alt="" coords="5,31,217,57"/>
+<area shape="rect" id="Node000002" href="$namespaceutils.html#a48fb30cfc8af6416be57bce6a51cce3f" title="Comprueba si &#39;haystack&#39; contiene &#39;needle&#39; sin distinguir mayúsculas/minúsculas." alt="" coords="273,5,382,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,29,260,26,255,27,218,34"/>
+<area shape="rect" id="Node000004" href="$class_v_dinamico.html#a34b779f636d3626731197162f3814cea" title="Inserta un elemento en una posición dada (por defecto, al final)." alt="" coords="265,56,390,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="217,54,252,60,246,60,217,59"/>
+<area shape="rect" id="Node000003" href="$namespaceutils.html#a43e6e02a01c4d77ecc700571c7861d13" title="Convierte una cadena a minúsculas &quot;in&#45;place&quot;." alt="" coords="438,5,581,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="382,16,425,18,420,19,382,21"/>
+</map>

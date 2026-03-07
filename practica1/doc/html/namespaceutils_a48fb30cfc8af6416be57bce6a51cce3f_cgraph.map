@@ -1,0 +1,5 @@
+<map id="utils::iContains" name="utils::iContains">
+<area shape="rect" id="Node000001" title="Comprueba si &#39;haystack&#39; contiene &#39;needle&#39; sin distinguir mayúsculas/minúsculas." alt="" coords="5,5,114,32"/>
+<area shape="rect" id="Node000002" href="$namespaceutils.html#a43e6e02a01c4d77ecc700571c7861d13" title="Convierte una cadena a minúsculas &quot;in&#45;place&quot;." alt="" coords="162,5,305,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,16,149,18,143,19,114,21"/>
+</map>

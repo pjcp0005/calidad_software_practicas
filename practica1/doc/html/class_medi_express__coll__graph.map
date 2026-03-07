@@ -1,0 +1,14 @@
+<map id="MediExpress" name="MediExpress">
+<area shape="rect" id="Node000001" title="Clase principal del sistema de gestión de medicamentos y laboratorios. Gestiona la carga,..." alt="" coords="168,339,265,365"/>
+<area shape="rect" id="Node000002" href="$class_v_dinamico.html" title=" " alt="" coords="5,240,209,267"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,274,205,337,199,339,131,279"/>
+<area shape="rect" id="Node000003" href="$class_pa_medicamento.html" title="Representa un medicamento del padrón de medicamentos. Almacena los identificadores,..." alt="" coords="49,112,165,139"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,152,110,240,104,239,106,156"/>
+<area shape="rect" id="Node000004" href="$class_laboratorio.html" title="Representa un laboratorio farmacéutico con sus datos identificativos y de localización." alt="" coords="64,5,150,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="108,45,110,112,104,111,106,50"/>
+<area shape="rect" id="Node000005" href="$class_lista_enlazada.html" title=" " alt="" coords="233,240,424,267"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="305,276,232,340,230,336,300,278"/>
+<area shape="rect" id="Node000006" href="$class_lista_enlazada_1_1_node.html" title="Nodo interno de la lista enlazada." alt="" coords="261,104,396,147"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="330,160,331,241,326,238,327,164"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="411,115,422,125,414,135,397,138,395,133,412,130,417,125,410,120"/>
+</map>

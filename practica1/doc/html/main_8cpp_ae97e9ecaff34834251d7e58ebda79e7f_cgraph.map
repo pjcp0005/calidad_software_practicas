@@ -1,0 +1,5 @@
+<map id="mostrarLista" name="mostrarLista">
+<area shape="rect" id="Node000001" title="Imprime por consola los elementos de una ListaEnlazada&lt;int&gt;." alt="" coords="5,5,99,32"/>
+<area shape="rect" id="Node000002" href="$class_lista_enlazada.html#a6ead61dbd7d4ee0b8235fcb22c468357" title="Devuelve un iterador apuntando al primer nodo." alt="" coords="147,5,298,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,16,134,18,128,19,99,21"/>
+</map>

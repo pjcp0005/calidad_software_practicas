@@ -1,0 +1,47 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="Función principal. Ejecuta las pruebas de ListaEnlazada&lt;int&gt; y del sistema MediExpress." alt="" coords="5,427,55,453"/>
+<area shape="rect" id="Node000002" href="$class_medi_express.html#a7f1683ea69d35f56e00a5f37b5405a8e" title="Busca medicamentos cuyo nombre contenga el compuesto dado (sin distinción de mayúsculas)." alt="" coords="105,56,316,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="30,426,36,357,49,257,70,158,84,119,101,93,106,90,104,95,105,96,89,122,75,160,54,258,41,357,35,427"/>
+<area shape="rect" id="Node000006" href="$class_medi_express.html#a5710513740aaa561bdc93b32b3fca55e" title="Busca laboratorios cuya ciudad contenga el texto dado (sin distinción de mayúsculas)." alt="" coords="108,107,314,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="30,426,53,285,74,204,86,172,101,150,117,139,114,144,105,154,91,175,79,206,58,286,36,427"/>
+<area shape="rect" id="Node000007" href="$class_lista_enlazada.html#a08753eaf1f0c856988a944f2d12d7a95" title="Inserta un elemento al final de la lista." alt="" coords="367,132,546,159"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="28,426,29,381,37,318,46,284,59,251,77,220,101,194,119,183,143,173,207,159,280,150,354,146,350,150,280,156,207,165,145,178,121,187,104,198,81,223,64,253,51,286,42,319,34,381,33,426"/>
+<area shape="rect" id="Node000008" href="$class_medi_express.html#aa16c03a285555e4702cd2205b492d98c" title="Obtiene los medicamentos que no tienen laboratorio asignado." alt="" coords="103,5,319,32"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="29,426,34,347,45,232,55,173,67,118,82,73,101,42,106,39,104,44,105,46,87,75,72,120,60,174,51,233,39,348,35,426"/>
+<area shape="rect" id="Node000009" href="$class_lista_enlazada.html#ad7b94a97a17effd98d44589d1040af84" title="Inserta un elemento después del nodo apuntado por el iterador." alt="" coords="125,208,296,235"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="29,426,34,390,45,341,66,289,82,265,101,245,113,238,110,242,104,249,86,269,71,292,50,342,39,391,35,427"/>
+<area shape="rect" id="Node000010" href="$class_lista_enlazada.html#a4868c22ccbfd328065922bf48281897d" title="Inserta un elemento al inicio de la lista." alt="" coords="106,259,316,285"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="32,426,39,398,52,363,73,326,101,295,110,291,108,295,104,299,77,329,57,365,44,399,37,427"/>
+<area shape="rect" id="Node000011" href="$class_lista_enlazada.html#a89fddde9e27ff5e633165525c160afe8" title="Inserta un elemento antes del nodo apuntado por el iterador." alt="" coords="120,309,302,336"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="36,425,61,385,79,364,101,346,114,340,111,345,104,350,83,368,65,388,41,427"/>
+<area shape="rect" id="Node000012" href="$class_lista_enlazada_1_1_iterator.html#a7047cf95a6a7bfaeba3a190d15214606" title="Comprueba si el iterador ha llegado al final de la lista." alt="" coords="135,360,287,403"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="53,429,102,412,125,406,122,410,104,417,57,433"/>
+<area shape="rect" id="Node000013" href="$class_lista_enlazada.html#a6ead61dbd7d4ee0b8235fcb22c468357" title="Devuelve un iterador apuntando al primer nodo." alt="" coords="381,477,532,504"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="39,451,66,485,84,501,104,514,142,526,182,533,222,536,263,534,339,523,405,508,400,511,340,528,263,539,222,541,181,539,140,532,102,518,80,506,62,489,40,457"/>
+<area shape="rect" id="Node000014" href="$class_v_dinamico.html#a360023b6338d432897d6651b4b0bfa3e" title="Devuelve el número de elementos almacenados (tamaño lógico)." alt="" coords="156,477,266,504"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="54,447,103,463,143,474,139,477,102,468,56,452"/>
+<area shape="rect" id="Node000015" href="$main_8cpp.html#ae97e9ecaff34834251d7e58ebda79e7f" title="Imprime por consola los elementos de una ListaEnlazada&lt;int&gt;." alt="" coords="164,427,258,453"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="54,438,150,438,147,442,56,442"/>
+<area shape="rect" id="Node000016" href="$class_lista_enlazada.html#ad62bf0979809fa4aaa070386d70109e9" title="Elimina el nodo apuntado por el iterador y avanza el iterador al siguiente." alt="" coords="134,579,288,605"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="36,451,61,504,80,533,104,558,125,571,120,573,101,562,76,537,56,507,36,456"/>
+<area shape="rect" id="Node000017" href="$class_lista_enlazada.html#aebe57d7807ed5798aeafcc899cc8c65f" title="Elimina el primer elemento de la lista." alt="" coords="121,629,301,656"/>
+<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="33,451,41,486,52,530,73,576,87,597,104,615,110,620,105,622,101,619,83,601,68,579,47,532,35,487,33,456"/>
+<area shape="rect" id="Node000018" href="$class_lista_enlazada.html#a27eb9552bfd786352c7f79f849fb4c52" title="Elimina el último elemento de la lista." alt="" coords="121,680,300,707"/>
+<area shape="poly" id="edge21_Node000001_Node000018" title=" " alt="" coords="31,451,36,495,46,553,67,614,83,642,105,666,110,672,105,673,101,670,79,645,62,616,41,554,31,496,31,456"/>
+<area shape="rect" id="Node000019" href="$main_8cpp.html#a077e6f3e2453c6dbb95b0d6c74b219c2" title="Imprime por consola un separador visual con un título centrado." alt="" coords="172,731,250,757"/>
+<area shape="poly" id="edge22_Node000001_Node000019" title=" " alt="" coords="33,451,58,590,79,667,91,697,105,717,129,732,159,742,154,743,127,737,101,721,86,700,74,669,53,591,33,456"/>
+<area shape="rect" id="Node000020" href="$class_lista_enlazada.html#a09370813716aec05245537f66271fc0b" title="Devuelve el número de elementos de la lista." alt="" coords="143,781,278,808"/>
+<area shape="poly" id="edge23_Node000001_Node000020" title=" " alt="" coords="32,451,42,520,55,615,76,708,89,744,105,767,131,785,126,786,101,771,84,746,71,709,50,616,36,521,32,456"/>
+<area shape="rect" id="Node000021" href="$class_medi_express.html#aeb7f43643b68eb3b8489a10b735b527a" title="Asigna un laboratorio como proveedor de un medicamento." alt="" coords="114,832,308,859"/>
+<area shape="poly" id="edge24_Node000001_Node000021" title=" " alt="" coords="32,451,40,529,52,639,73,748,87,790,105,818,108,823,103,822,101,822,82,792,68,749,46,640,34,530,32,456"/>
+<area shape="rect" id="Node000003" href="$namespaceutils.html#a48fb30cfc8af6416be57bce6a51cce3f" title="Comprueba si &#39;haystack&#39; contiene &#39;needle&#39; sin distinguir mayúsculas/minúsculas." alt="" coords="402,81,511,108"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="316,78,389,86,385,89,318,83"/>
+<area shape="rect" id="Node000005" href="$class_v_dinamico.html#a34b779f636d3626731197162f3814cea" title="Inserta un elemento en una posición dada (por defecto, al final)." alt="" coords="394,31,519,57"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="316,56,380,50,376,54,319,61"/>
+<area shape="rect" id="Node000004" href="$namespaceutils.html#a43e6e02a01c4d77ecc700571c7861d13" title="Convierte una cadena a minúsculas &quot;in&#45;place&quot;." alt="" coords="594,81,738,108"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="510,92,581,93,577,96,512,97"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="313,107,389,100,385,103,316,112"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="313,128,354,133,349,136,316,133"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="318,27,380,34,376,37,321,32"/>
+<area shape="poly" id="edge18_Node000015_Node000013" title=" " alt="" coords="257,447,376,472,371,475,258,452"/>
+</map>

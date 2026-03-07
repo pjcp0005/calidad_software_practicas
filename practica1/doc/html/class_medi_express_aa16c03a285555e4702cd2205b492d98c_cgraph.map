@@ -1,0 +1,5 @@
+<map id="MediExpress::getMedicamSinLab" name="MediExpress::getMedicamSinLab">
+<area shape="rect" id="Node000001" title="Obtiene los medicamentos que no tienen laboratorio asignado." alt="" coords="5,5,222,32"/>
+<area shape="rect" id="Node000002" href="$class_v_dinamico.html#a34b779f636d3626731197162f3814cea" title="Inserta un elemento en una posición dada (por defecto, al final)." alt="" coords="270,5,395,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,16,257,19,251,19,222,21"/>
+</map>

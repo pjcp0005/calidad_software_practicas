@@ -1,0 +1,14 @@
+<map id="utils::toLowerInPlace" name="utils::toLowerInPlace">
+<area shape="rect" id="Node000001" title="Convierte una cadena a minúsculas &quot;in&#45;place&quot;." alt="" coords="525,56,669,83"/>
+<area shape="rect" id="Node000002" href="$namespaceutils.html#a48fb30cfc8af6416be57bce6a51cce3f" title="Comprueba si &#39;haystack&#39; contiene &#39;needle&#39; sin distinguir mayúsculas/minúsculas." alt="" coords="366,31,474,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="508,57,474,54,474,49,513,57"/>
+<area shape="rect" id="Node000006" href="$namespaceutils.html#ab5fa17097d626a126445858c86fb791e" title="Devuelve una COPIA de la cadena en minúsculas." alt="" coords="362,81,477,108"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="513,81,478,89,478,84,508,82"/>
+<area shape="rect" id="Node000003" href="$class_medi_express.html#a7f1683ea69d35f56e00a5f37b5405a8e" title="Busca medicamentos cuyo nombre contenga el compuesto dado (sin distinción de mayúsculas)." alt="" coords="103,5,314,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="347,36,314,34,314,29,353,35"/>
+<area shape="rect" id="Node000005" href="$class_medi_express.html#a5710513740aaa561bdc93b32b3fca55e" title="Busca laboratorios cuya ciudad contenga el texto dado (sin distinción de mayúsculas)." alt="" coords="105,56,312,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="347,53,312,60,312,54,353,52"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Función principal. Ejecuta las pruebas de ListaEnlazada&lt;int&gt; y del sistema MediExpress." alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,37,56,43,54,38,98,33"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="94,55,56,50,55,45,98,52"/>
+</map>

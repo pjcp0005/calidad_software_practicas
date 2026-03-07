@@ -1,0 +1,7 @@
+<map id="Laboratorio::operator==" name="Laboratorio::operator==">
+<area shape="rect" id="Node000001" title="Operador de igualdad. Compara por identificador numérico." alt="" coords="5,31,162,57"/>
+<area shape="rect" id="Node000002" href="$class_laboratorio.html#ac70375c93c5763347712393450dc1a2b" title="Devuelve el identificador numérico del laboratorio." alt="" coords="227,5,350,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,32,214,27,209,29,162,37"/>
+<area shape="rect" id="Node000003" href="$class_laboratorio.html#a203ae5fbf52d077614e3234456994b02" title="Constructor por defecto." alt="" coords="210,56,367,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,51,197,58,191,58,162,56"/>
+</map>
