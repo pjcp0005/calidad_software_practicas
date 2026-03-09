@@ -1,6 +1,6 @@
 # 📦 Proyecto: Practica2Listas
 
-Este proyecto está organizado en varias carpetas que separan las cabeceras, implementaciones, datos y archivos de compilación, facilitando la modularidad y el mantenimiento del código.
+Proyecto C++ que implementa dos estructuras de datos genéricas propias: un **vector dinámico** (`VDinamico<T>`) con redimensionamiento automático basado en potencias de 2, y una **lista enlazada simple** (`ListaEnlazada<T>`) con iterador propio. Ambas estructuras se usan como base del sistema **MediExpress**, una aplicación de gestión del padrón de medicamentos que carga datos desde ficheros CSV, enlaza automáticamente medicamentos con laboratorios y ofrece búsquedas por nombre de ciudad, compuesto activo o laboratorio. El proyecto está organizado en varias carpetas que separan las cabeceras, implementaciones, datos y archivos de compilación, facilitando la modularidad y el mantenimiento del código.
 
 ## 🗂️ Estructura del proyecto
 
@@ -40,6 +40,20 @@ Practica2Listas/
 - **`src/`** → Implementaciones en C++.
 - **`data/`** → Archivos CSV de prueba.
 - **`Makefile` / `CMakeLists.txt`** → Archivos para automatizar la compilación.
+
+## Warnings del compilador GCC (corregidos)
+
+Warnings detectados al compilar con GCC (`-Wall -Wextra`), visibles en la pestaña **Problemas** de VS Code filtrando con `!sonar`.
+
+| Archivo | Línea original | Warning | Solución aplicada |
+|---|---|---|---|
+| [Laboratorio.cpp](src/Laboratorio.cpp) | 32 | `comparison of integer expressions of different signedness: 'const unsigned int' and 'int' [-Wsign-compare]` — comparación entre `m_id` (`unsigned int`) y el retorno de `getId()` (`int`). | Se añadió `static_cast<int>(m_id)` en `operator==` para que ambos operandos sean del mismo tipo. |
+| [main.cpp](src/main.cpp) | 49 | `unused parameter 'argc' [-Wunused-parameter]` y `unused parameter 'argv' [-Wunused-parameter]` — los parámetros de `main` se declaraban pero no se usaban. | Se eliminaron los parámetros de la firma: `int main()`. Se actualizó también el comentario Doxygen. |
+| [MediExpress.cpp](src/MediExpress.cpp) | 26 | `unused variable 'count' [-Wunused-variable]` — variable `int count = 0` declarada y nunca usada. | Se eliminó la declaración de `count`. |
+| [MediExpress.cpp](src/MediExpress.cpp) | 36 | `unused variable 't_ini' [-Wunused-variable]` — variable `clock_t t_ini = clock()` declarada y nunca usada (probablemente de una medición de tiempo abandonada). | Se eliminó la declaración de `t_ini`. |
+| [MediExpress.cpp](src/MediExpress.cpp) | 186 | `comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]` — variable de bucle `int i` comparada con `unsigned int siz`. | Se cambió el tipo de `i` a `unsigned int` en `buscarCompuesto`. |
+| [MediExpress.cpp](src/MediExpress.cpp) | 199 | `comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]` — mismo problema en `getMedicamSinLab`. | Se cambió el tipo de `i` a `unsigned int` en `getMedicamSinLab`. |
+| [VDinamico.tpp](src/VDinamico.tpp) | 260 | `comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]` — en `insert`, el bucle `int i = m_tamal` se comparaba con `unsigned int index`. | Se aplicaron `static_cast<int>` sobre `m_tamal` e `index` para homogeneizar los tipos del bucle. |
 
 ## Warnings de SonarQube
 
