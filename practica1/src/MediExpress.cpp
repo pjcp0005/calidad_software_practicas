@@ -23,7 +23,6 @@ VDinamico<PaMedicamento> MediExpress::loadMedicinesFromCsv(const std::string &cs
     std::ifstream is;
     std::stringstream columns;
     std::string row;
-    int count = 0;
     std::string idNum = "";
     std::string idAlpha = "";
     std::string name = "";
@@ -32,8 +31,6 @@ VDinamico<PaMedicamento> MediExpress::loadMedicinesFromCsv(const std::string &cs
 
     is.open(csvPath); // carpeta de proyecto
     if (is.good()){
-
-        clock_t t_ini = clock();
 
         while (getline(is, row)){
 
@@ -183,7 +180,7 @@ VDinamico<PaMedicamento*> MediExpress::buscarCompuesto(const std::string &compou
     VDinamico<PaMedicamento*> aux;
 
     unsigned int siz = m_med.len();
-    for(int i = 0; i < siz;++i){
+    for(unsigned int i = 0; i < siz;++i){
         if (utils::iContains(m_med[i].getName(), compoundName)) {
             aux.insert(&m_med[i]);
         }
@@ -196,7 +193,7 @@ VDinamico<PaMedicamento*> MediExpress::getMedicamSinLab() const{
     VDinamico<PaMedicamento*> aux;
 
     unsigned int siz = m_med.len();
-    for(int i = 0; i < siz ; ++i){
+    for(unsigned int i = 0; i < siz ; ++i){
         if(m_med[i].getServidoPor() == nullptr){
             aux.insert(&m_med[i]);
         }
