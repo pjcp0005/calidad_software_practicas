@@ -42,11 +42,9 @@ void separador(const std::string &titulo) {
 
 /**
  * @brief Función principal. Ejecuta las pruebas de ListaEnlazada<int> y del sistema MediExpress.
- * @param argc Número de argumentos de línea de comandos.
- * @param argv Vector de cadenas con los argumentos de línea de comandos.
  * @return 0 si la ejecución finaliza correctamente.
  */
-int main(int argc, const char *argv[]) {
+int main() {
     try {
         std::cout << "=======================================================================================================================" << std::endl;
         std::cout << "----------------------------------------------- " << "Prueba I" << " -----------------------------------------------" << std::endl;
