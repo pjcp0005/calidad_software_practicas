@@ -25,10 +25,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="ujaen.png"/></td>
   <td id="projectalign">
-   <div id="projectname">P1B9<span id="projectnumber">&#160;1</span>
+   <div id="projectname">P1B9
    </div>
-   <div id="projectbrief">Proyecto de calidad</div>
   </td>
  </tr>
  </tbody>
@@ -117,7 +117,7 @@ $(function(){initNavTree('_laboratorio_8cpp_source.html','',''); });
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_laboratorio.html#ac0a12c6a24ee87852a01fa37ef44eb62">   31</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_laboratorio.html#ac0a12c6a24ee87852a01fa37ef44eb62">Laboratorio::operator==</a>(<a class="code hl_function" href="class_laboratorio.html#a203ae5fbf52d077614e3234456994b02">Laboratorio</a> lab)<span class="keyword"> const</span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span>(<a class="code hl_variable" href="class_laboratorio.html#ab4335545f160db22b6be03bd4c9fe3a0">m_id</a> == lab.<a class="code hl_function" href="class_laboratorio.html#ac70375c93c5763347712393450dc1a2b">getId</a>()){</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_laboratorio.html#ab4335545f160db22b6be03bd4c9fe3a0">m_id</a>) == lab.<a class="code hl_function" href="class_laboratorio.html#ac70375c93c5763347712393450dc1a2b">getId</a>()){</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>

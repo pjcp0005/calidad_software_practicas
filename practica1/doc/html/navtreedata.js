@@ -28,8 +28,9 @@ var NAVTREE =
     [ "📦 Proyecto: Practica2Listas", "md__r_e_a_d_m_e.html", [
       [ "🗂️ Estructura del proyecto", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "📁 Descripción de carpetas", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Warnings de SonarQube", "md__r_e_a_d_m_e.html#autotoc_md3", [
-        [ "No corregidos", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
+      [ "Warnings del compilador GCC (corregidos)", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "Warnings de SonarQube", "md__r_e_a_d_m_e.html#autotoc_md4", [
+        [ "No corregidos", "md__r_e_a_d_m_e.html#autotoc_md5", null ]
       ] ]
     ] ],
     [ "Namespaces", "namespaces.html", [

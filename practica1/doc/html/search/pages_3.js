@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['no_20corregidos_0',['No corregidos',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]]
+  ['gcc_20corregidos_0',['Warnings del compilador GCC (corregidos)',['../md__r_e_a_d_m_e.html#autotoc_md3',1,'']]]
 ];

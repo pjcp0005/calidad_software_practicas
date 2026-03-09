@@ -25,10 +25,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="ujaen.png"/></td>
   <td id="projectalign">
-   <div id="projectname">P1B9<span id="projectnumber">&#160;1</span>
+   <div id="projectname">P1B9
    </div>
-   <div id="projectbrief">Proyecto de calidad</div>
   </td>
  </tr>
  </tbody>
@@ -93,7 +93,7 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
-<p>Este proyecto está organizado en varias carpetas que separan las cabeceras, implementaciones, datos y archivos de compilación, facilitando la modularidad y el mantenimiento del código.</p>
+<p>Proyecto C++ que implementa dos estructuras de datos genéricas propias: un <b>vector dinámico</b> (<span class="tt"><a class="el" href="class_v_dinamico.html" title="Vector dinámico genérico con redimensionamiento automático basado en potencias de 2....">VDinamico</a>&lt;T&gt;</span>) con redimensionamiento automático basado en potencias de 2, y una <b>lista enlazada simple</b> (<span class="tt"><a class="el" href="class_lista_enlazada.html" title="Lista enlazada simple genérica con iterador propio. Gestiona nodos dinámicos encadenados....">ListaEnlazada</a>&lt;T&gt;</span>) con iterador propio. Ambas estructuras se usan como base del sistema <b><a class="el" href="class_medi_express.html" title="Clase principal del sistema de gestión de medicamentos y laboratorios. Gestiona la carga,...">MediExpress</a></b>, una aplicación de gestión del padrón de medicamentos que carga datos desde ficheros CSV, enlaza automáticamente medicamentos con laboratorios y ofrece búsquedas por nombre de ciudad, compuesto activo o laboratorio. El proyecto está organizado en varias carpetas que separan las cabeceras, implementaciones, datos y archivos de compilación, facilitando la modularidad y el mantenimiento del código.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 🗂️ Estructura del proyecto</h1>
 <div class="fragment"><div class="line">Practica2Listas/</div>
@@ -132,9 +132,30 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html','',''); });
 <li><b><span class="tt">Makefile</span> / <span class="tt">CMakeLists.txt</span></b> → Archivos para automatizar la compilación.</li>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Warnings del compilador GCC (corregidos)</h1>
+<p>Warnings detectados al compilar con GCC (<span class="tt">-Wall -Wextra</span>), visibles en la pestaña <b>Problemas</b> de VS Code filtrando con <span class="tt">!sonar</span>.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Archivo  </th><th class="markdownTableHeadNone">Línea original  </th><th class="markdownTableHeadNone">Warning  </th><th class="markdownTableHeadNone">Solución aplicada  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="src/Laboratorio.cpp">Laboratorio.cpp</a>  </td><td class="markdownTableBodyNone">32  </td><td class="markdownTableBodyNone"><span class="tt">comparison of integer expressions of different signedness: 'const unsigned int' and 'int' [-Wsign-compare]</span> — comparación entre <span class="tt">m_id</span> (<span class="tt">unsigned int</span>) y el retorno de <span class="tt">getId()</span> (<span class="tt">int</span>).  </td><td class="markdownTableBodyNone">Se añadió <span class="tt">static_cast&lt;int&gt;(m_id)</span> en <span class="tt">operator==</span> para que ambos operandos sean del mismo tipo.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="src/main.cpp">main.cpp</a>  </td><td class="markdownTableBodyNone">49  </td><td class="markdownTableBodyNone"><span class="tt">unused parameter 'argc' [-Wunused-parameter]</span> y <span class="tt">unused parameter 'argv' [-Wunused-parameter]</span> — los parámetros de <span class="tt"><a class="el" href="_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></span> se declaraban pero no se usaban.  </td><td class="markdownTableBodyNone">Se eliminaron los parámetros de la firma: <span class="tt">int <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Función principal. Ejecuta las pruebas de ListaEnlazada&lt;int&gt; y del sistema MediExpress.">main()</a></span>. Se actualizó también el comentario Doxygen.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="src/MediExpress.cpp">MediExpress.cpp</a>  </td><td class="markdownTableBodyNone">26  </td><td class="markdownTableBodyNone"><span class="tt">unused variable 'count' [-Wunused-variable]</span> — variable <span class="tt">int count = 0</span> declarada y nunca usada.  </td><td class="markdownTableBodyNone">Se eliminó la declaración de <span class="tt">count</span>.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="src/MediExpress.cpp">MediExpress.cpp</a>  </td><td class="markdownTableBodyNone">36  </td><td class="markdownTableBodyNone"><span class="tt">unused variable 't_ini' [-Wunused-variable]</span> — variable <span class="tt">clock_t t_ini = clock()</span> declarada y nunca usada (probablemente de una medición de tiempo abandonada).  </td><td class="markdownTableBodyNone">Se eliminó la declaración de <span class="tt">t_ini</span>.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="src/MediExpress.cpp">MediExpress.cpp</a>  </td><td class="markdownTableBodyNone">186  </td><td class="markdownTableBodyNone"><span class="tt">comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]</span> — variable de bucle <span class="tt">int i</span> comparada con <span class="tt">unsigned int siz</span>.  </td><td class="markdownTableBodyNone">Se cambió el tipo de <span class="tt">i</span> a <span class="tt">unsigned int</span> en <span class="tt">buscarCompuesto</span>.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="src/MediExpress.cpp">MediExpress.cpp</a>  </td><td class="markdownTableBodyNone">199  </td><td class="markdownTableBodyNone"><span class="tt">comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]</span> — mismo problema en <span class="tt">getMedicamSinLab</span>.  </td><td class="markdownTableBodyNone">Se cambió el tipo de <span class="tt">i</span> a <span class="tt">unsigned int</span> en <span class="tt">getMedicamSinLab</span>.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="src/VDinamico.tpp">VDinamico.tpp</a>  </td><td class="markdownTableBodyNone">260  </td><td class="markdownTableBodyNone"><span class="tt">comparison of integer expressions of different signedness: 'int' and 'unsigned int' [-Wsign-compare]</span> — en <span class="tt">insert</span>, el bucle <span class="tt">int i = m_tamal</span> se comparaba con <span class="tt">unsigned int index</span>.  </td><td class="markdownTableBodyNone">Se aplicaron <span class="tt">static_cast&lt;int&gt;</span> sobre <span class="tt">m_tamal</span> e <span class="tt">index</span> para homogeneizar los tipos del bucle.  </td></tr>
+</table>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Warnings de SonarQube</h1>
 <p>Warnings detectados con SonarLint al filtrar con <span class="tt">!sonar</span> en la pestaña <b>Problemas</b> de VS Code.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 No corregidos</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

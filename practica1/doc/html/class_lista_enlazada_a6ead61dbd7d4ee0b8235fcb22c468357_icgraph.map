@@ -1,6 +1,6 @@
 <map id="ListaEnlazada::iterator" name="ListaEnlazada::iterator">
 <area shape="rect" id="Node000001" title="Devuelve un iterador apuntando al primer nodo." alt="" coords="244,5,395,32"/>
-<area shape="rect" id="Node000002" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Función principal. Ejecuta las pruebas de ListaEnlazada&lt;int&gt; y del sistema MediExpress." alt="" coords="5,5,55,32"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Función principal. Ejecuta las pruebas de ListaEnlazada&lt;int&gt; y del sistema MediExpress." alt="" coords="5,5,55,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,21,55,21,55,16,229,16"/>
 <area shape="rect" id="Node000003" href="$main_8cpp.html#ae97e9ecaff34834251d7e58ebda79e7f" title="Imprime por consola los elementos de una ListaEnlazada&lt;int&gt;." alt="" coords="103,31,196,57"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="231,32,197,40,196,34,226,33"/>

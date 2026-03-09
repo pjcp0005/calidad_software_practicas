@@ -1,5 +1,5 @@
 <map id="separador" name="separador">
 <area shape="rect" id="Node000001" title="Imprime por consola un separador visual con un título centrado." alt="" coords="103,5,181,32"/>
-<area shape="rect" id="Node000002" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Función principal. Ejecuta las pruebas de ListaEnlazada&lt;int&gt; y del sistema MediExpress." alt="" coords="5,5,55,32"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Función principal. Ejecuta las pruebas de ListaEnlazada&lt;int&gt; y del sistema MediExpress." alt="" coords="5,5,55,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,20,55,21,55,16,90,18"/>
 </map>
