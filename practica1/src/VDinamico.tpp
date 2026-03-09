@@ -257,7 +257,7 @@ void VDinamico<T>::insert(const T &data, unsigned int index) {
         allocateMemory();
     }
 
-    for( int i = m_tamal; i > index; --i) {
+    for( int i = static_cast<int>(m_tamal); i > static_cast<int>(index); --i) {
         v[i] = v[i-1];
     }
 
