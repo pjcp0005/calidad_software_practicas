@@ -38,5 +38,14 @@ bool safe_read(unsigned int& value);
  * Contiene toda la lógica que antes residía en main(): pruebas de ListaEnlazada<int>
  * y operaciones sobre el sistema MediExpress. Al estar desacoplada de main(), esta
  * función puede ser invocada y verificada por el framework de pruebas Google Test.
+ *
+ * Los parámetros tienen valores por defecto para que main() no necesite cambios.
+ * Los tests pasan rutas propias para no tocar nunca los datos reales del proyecto.
+ *
+ * @param medsPath Ruta al CSV de medicamentos.
+ * @param labsPath Ruta al CSV de laboratorios.
  */
-void run_simulation();
+void run_simulation(
+    const std::string& medsPath = "../data/pa_medicamentos.csv",
+    const std::string& labsPath = "../data/laboratorios.csv"
+);

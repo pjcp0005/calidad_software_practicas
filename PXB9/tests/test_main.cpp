@@ -4,7 +4,7 @@
  * @brief Batería de pruebas unitarias para la función run_simulation() generada con IA
  *        y revisada manualmente. Cubre los tres tipos de prueba exigidos: Happy Path,
  *        Edge Case y Error Handling.
- * @version 0.1
+ * @version 0.2
  * @date 2026-03-22
  *
  * @copyright Copyright (c) 2026
@@ -18,6 +18,12 @@
 #include <cstdio>
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Rutas de ficheros exclusivos para tests (nunca coinciden con datos reales)
+// ─────────────────────────────────────────────────────────────────────────────
+static const std::string TEST_MEDS = "../data/test_pa_medicamentos.csv";
+static const std::string TEST_LABS = "../data/test_laboratorios.csv";
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Fixture: SimulationTest
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -26,12 +32,13 @@
  *
  * Antes de cada test (SetUp):
  *   - Redirige std::cout y std::cerr a stringstreams para capturar la salida.
- *   - Lee y guarda en memoria el contenido de los CSV reales (backup).
  *
  * Después de cada test (TearDown):
  *   - Restaura std::cout y std::cerr a sus buffers originales.
- *   - Restaura los CSV reales desde el backup, garantizando que los datos del
- *     proyecto nunca se pierden, independientemente del resultado del test.
+ *   - Elimina los ficheros de test temporales si existen.
+ *
+ * Los datos reales del proyecto (pa_medicamentos.csv, laboratorios.csv) nunca
+ * se tocan porque run_simulation() recibe rutas de test como parámetro.
  */
 class SimulationTest : public ::testing::Test {
 protected:
@@ -40,29 +47,7 @@ protected:
     std::streambuf* orig_cout = nullptr;
     std::streambuf* orig_cerr = nullptr;
 
-    // Contenido de los ficheros reales guardado antes de cada test
-    std::string backup_meds_;
-    std::string backup_labs_;
-    bool meds_existed_ = false;
-    bool labs_existed_ = false;
-
     // ── Utilidades de fichero ─────────────────────────────────────────────
-
-    /**
-     * @brief Lee el contenido completo de un fichero en una cadena.
-     * @param path   Ruta al fichero.
-     * @param[out] existed Verdadero si el fichero existía y se pudo abrir.
-     * @return Contenido del fichero, o cadena vacía si no existe.
-     */
-    static std::string readFile(const std::string& path, bool& existed) {
-        std::ifstream f(path, std::ios::binary);
-        existed = f.is_open();
-        if (!existed) return "";
-        return std::string(
-            (std::istreambuf_iterator<char>(f)),
-            std::istreambuf_iterator<char>()
-        );
-    }
 
     /**
      * @brief Escribe contenido en un fichero, creándolo o sobreescribiéndolo.
@@ -77,7 +62,7 @@ protected:
     // ── Helpers de datos de prueba ────────────────────────────────────────
 
     /**
-     * @brief Crea ficheros CSV con datos mínimos pero válidos para pruebas normales.
+     * @brief Crea ficheros CSV de test con datos mínimos pero válidos.
      *
      * Formato de medicamentos: id_num;id_alpha;nombre;
      * Formato de laboratorios: id;nombre;direccion;cod_postal;localidad
@@ -87,64 +72,40 @@ protected:
      *   - Lab 2 (Madrid)  → med 3 (Aceite de Ricino)
      */
     void createValidFiles() {
-        writeFile("../data/pa_medicamentos.csv",
+        writeFile(TEST_MEDS,
             "1;MED001;Paracetamol;\n"
             "2;MED002;Ibuprofeno;\n"
             "3;MED003;Aceite de Ricino;\n");
-        writeFile("../data/laboratorios.csv",
+        writeFile(TEST_LABS,
             "1;FarmaGen S.L.;Calle Mayor 1;18001;Granada\n"
             "2;HealthMed S.A.;Calle Alcala 10;28001;Madrid\n");
     }
 
     /**
-     * @brief Crea ficheros CSV vacíos (sin ninguna línea de datos).
+     * @brief Crea ficheros CSV de test vacíos (sin ninguna línea de datos).
      *
      * Sirve para verificar que el sistema se comporta correctamente cuando
      * no hay medicamentos ni laboratorios cargados.
      */
     void createEmptyFiles() {
-        writeFile("../data/pa_medicamentos.csv", "");
-        writeFile("../data/laboratorios.csv",    "");
-    }
-
-    /**
-     * @brief Elimina ambos ficheros CSV del directorio de datos.
-     *
-     * Usado para simular la ausencia de ficheros de entrada y verificar
-     * que el sistema reporta el error sin bloquearse.
-     */
-    void deleteDataFiles() {
-        std::remove("../data/pa_medicamentos.csv");
-        std::remove("../data/laboratorios.csv");
+        writeFile(TEST_MEDS, "");
+        writeFile(TEST_LABS, "");
     }
 
     // ── Ciclo de vida del fixture ─────────────────────────────────────────
 
     void SetUp() override {
-        // Redirigir salidas estándar
         orig_cout = std::cout.rdbuf(cout_buffer.rdbuf());
         orig_cerr = std::cerr.rdbuf(cerr_buffer.rdbuf());
-
-        // Hacer backup de los ficheros reales antes de cualquier modificación
-        backup_meds_ = readFile("../data/pa_medicamentos.csv", meds_existed_);
-        backup_labs_ = readFile("../data/laboratorios.csv",    labs_existed_);
     }
 
     void TearDown() override {
-        // Restaurar buffers de consola
         std::cout.rdbuf(orig_cout);
         std::cerr.rdbuf(orig_cerr);
 
-        // Restaurar los ficheros originales siempre, pase lo que pase en el test
-        if (meds_existed_)
-            writeFile("../data/pa_medicamentos.csv", backup_meds_);
-        else
-            std::remove("../data/pa_medicamentos.csv");
-
-        if (labs_existed_)
-            writeFile("../data/laboratorios.csv", backup_labs_);
-        else
-            std::remove("../data/laboratorios.csv");
+        // Eliminar los ficheros temporales de test (no son datos reales)
+        std::remove(TEST_MEDS.c_str());
+        std::remove(TEST_LABS.c_str());
     }
 };
 
@@ -155,7 +116,7 @@ protected:
 /**
  * @brief Happy Path: verifica que run_simulation() completa correctamente con datos válidos.
  *
- * Se crean ficheros CSV con formato correcto (separador ';', campos completos).
+ * Se crean ficheros CSV de test con formato correcto (separador ';', campos completos).
  * Se comprueba que:
  *   - La Prueba I (ListaEnlazada) imprime el mensaje de éxito final.
  *   - La Prueba II (MediExpress) muestra los bloques de laboratorios esperados.
@@ -164,7 +125,7 @@ protected:
 TEST_F(SimulationTest, RunSimulation_HappyPath) {
     createValidFiles();
 
-    run_simulation();
+    run_simulation(TEST_MEDS, TEST_LABS);
 
     const std::string output = cout_buffer.str();
 
@@ -195,7 +156,7 @@ TEST_F(SimulationTest, RunSimulation_HappyPath) {
 TEST_F(SimulationTest, RunSimulation_EdgeCase_EmptyFiles) {
     createEmptyFiles();
 
-    run_simulation();
+    run_simulation(TEST_MEDS, TEST_LABS);
 
     const std::string output = cout_buffer.str();
 
@@ -220,14 +181,16 @@ TEST_F(SimulationTest, RunSimulation_EdgeCase_EmptyFiles) {
  *        los ficheros CSV no existen, sin bloquearse ni lanzar una excepción no capturada.
  *
  * loadLabFromCsv() imprime en std::cerr cuando no puede abrir el fichero de laboratorios.
+ * No se crean ficheros de test, por lo que las rutas apuntan a ficheros inexistentes.
  * Se comprueba que:
  *   - std::cerr contiene al menos un mensaje de error descriptivo.
  *   - La función termina de forma controlada (no hay crash).
  */
 TEST_F(SimulationTest, RunSimulation_ErrorHandling_MissingFiles) {
-    deleteDataFiles();
+    // No llamamos a createValidFiles() ni createEmptyFiles():
+    // TEST_MEDS y TEST_LABS no existen → run_simulation() debe reportar el error.
 
-    run_simulation();
+    run_simulation(TEST_MEDS, TEST_LABS);
 
     EXPECT_FALSE(cerr_buffer.str().empty())
         << "Se esperaba un mensaje de error en std::cerr al faltar los ficheros CSV.";

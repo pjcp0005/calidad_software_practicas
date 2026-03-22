@@ -45,7 +45,7 @@ bool safe_read(unsigned int& value) {
     return true; // Continuar el programa
 }
 
-void run_simulation() {
+void run_simulation(const std::string& medsPath, const std::string& labsPath) {
     try {
         std::cout << "=======================================================================================================================" << std::endl;
         std::cout << "----------------------------------------------- " << "Prueba I" << " -----------------------------------------------" << std::endl;
@@ -123,7 +123,7 @@ void run_simulation() {
 
         separador("Labs Granada");
 
-        MediExpress mediExpr("../data/pa_medicamentos.csv", "../data/laboratorios.csv");
+        MediExpress mediExpr(medsPath, labsPath);
         VDinamico<PaMedicamento*> noLab = mediExpr.getMedicamSinLab();
         std::cout << "Medicamentos sin laboratorio: " << noLab.len() << "\n";
 
