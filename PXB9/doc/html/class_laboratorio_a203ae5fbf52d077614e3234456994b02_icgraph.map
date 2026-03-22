@@ -1,9 +1,0 @@
-<map id="Laboratorio::Laboratorio" name="Laboratorio::Laboratorio">
-<area shape="rect" id="Node000001" title="Constructor por defecto." alt="" coords="219,56,376,83"/>
-<area shape="rect" id="Node000002" href="$class_laboratorio.html#a63ab9c7b5ebbb63f5aa25e344bbc9a22" title="Sobrecarga del operador de salida. Imprime los datos del laboratorio." alt="" coords="10,5,166,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,53,146,35,146,30,227,51"/>
-<area shape="rect" id="Node000003" href="$class_laboratorio.html#ac0a12c6a24ee87852a01fa37ef44eb62" title="Operador de igualdad. Compara por identificador numérico." alt="" coords="10,56,166,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,70,167,72,166,67,206,69"/>
-<area shape="rect" id="Node000004" href="$class_laboratorio.html#ad5c1923ca87f121b607f3cd2656eed12" title="Destructor por defecto." alt="" coords="5,107,171,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,86,147,109,146,103,222,87"/>
-</map>

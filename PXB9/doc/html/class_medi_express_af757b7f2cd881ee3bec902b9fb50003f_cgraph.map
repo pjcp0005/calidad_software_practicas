@@ -1,5 +1,0 @@
-<map id="MediExpress::loadLabFromCsv" name="MediExpress::loadLabFromCsv">
-<area shape="rect" id="Node000001" title="Carga laboratorios desde un fichero CSV." alt="" coords="5,5,210,32"/>
-<area shape="rect" id="Node000002" href="$class_lista_enlazada.html#a08753eaf1f0c856988a944f2d12d7a95" title="Inserta un elemento al final de la lista." alt="" coords="258,5,437,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,16,244,19,239,19,210,21"/>
-</map>

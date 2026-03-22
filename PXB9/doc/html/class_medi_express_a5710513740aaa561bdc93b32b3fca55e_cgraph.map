@@ -1,9 +1,0 @@
-<map id="MediExpress::buscarLabCiudad" name="MediExpress::buscarLabCiudad">
-<area shape="rect" id="Node000001" title="Busca laboratorios cuya ciudad contenga el texto dado (sin distinción de mayúsculas)." alt="" coords="5,31,212,57"/>
-<area shape="rect" id="Node000002" href="$namespaceutils.html#a48fb30cfc8af6416be57bce6a51cce3f" title="Comprueba si &#39;haystack&#39; contiene &#39;needle&#39; sin distinguir mayúsculas/minúsculas." alt="" coords="295,5,404,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,30,283,25,277,26,213,36"/>
-<area shape="rect" id="Node000004" href="$class_lista_enlazada.html#a08753eaf1f0c856988a944f2d12d7a95" title="Inserta un elemento al final de la lista." alt="" coords="260,56,439,83"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="212,52,247,58,241,58,212,58"/>
-<area shape="rect" id="Node000003" href="$namespaceutils.html#a43e6e02a01c4d77ecc700571c7861d13" title="Convierte una cadena a minúsculas &quot;in&#45;place&quot;." alt="" coords="487,5,630,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,16,474,18,469,19,404,21"/>
-</map>

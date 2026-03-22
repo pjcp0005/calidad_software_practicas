@@ -1,5 +1,0 @@
-<map id="utils::lowerCopy" name="utils::lowerCopy">
-<area shape="rect" id="Node000001" title="Devuelve una COPIA de la cadena en minúsculas." alt="" coords="5,5,121,32"/>
-<area shape="rect" id="Node000002" href="$namespaceutils.html#a43e6e02a01c4d77ecc700571c7861d13" title="Convierte una cadena a minúsculas &quot;in&#45;place&quot;." alt="" coords="169,5,312,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,16,156,18,151,19,121,21"/>
-</map>

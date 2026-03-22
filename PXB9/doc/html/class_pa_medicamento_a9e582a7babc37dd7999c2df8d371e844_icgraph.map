@@ -1,7 +1,0 @@
-<map id="PaMedicamento::PaMedicamento" name="PaMedicamento::PaMedicamento">
-<area shape="rect" id="Node000001" title="Constructor por defecto." alt="" coords="240,31,457,57"/>
-<area shape="rect" id="Node000002" href="$class_pa_medicamento.html#ac2939d2fd0393e4060c2e63d60eb7b2d" title="Operador menor que. Compara por identificador numérico." alt="" coords="9,5,188,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,32,188,30,188,25,227,31"/>
-<area shape="rect" id="Node000003" href="$class_pa_medicamento.html#a0b543e1516f3490fb5a89937fc91db77" title="Operador de igualdad. Compara por identificador numérico." alt="" coords="5,56,192,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,57,192,63,192,57,227,56"/>
-</map>

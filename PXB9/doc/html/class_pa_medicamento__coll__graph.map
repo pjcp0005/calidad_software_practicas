@@ -1,5 +1,0 @@
-<map id="PaMedicamento" name="PaMedicamento">
-<area shape="rect" id="Node000001" title="Representa un medicamento del padrón de medicamentos. Almacena los identificadores,..." alt="" coords="5,104,121,131"/>
-<area shape="rect" id="Node000002" href="$class_laboratorio.html" title="Representa un laboratorio farmacéutico con sus datos identificativos y de localización." alt="" coords="20,5,106,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,46,66,104,60,103,61,49"/>
-</map>

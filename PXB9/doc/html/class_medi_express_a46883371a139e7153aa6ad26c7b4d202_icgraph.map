@@ -1,5 +1,0 @@
-<map id="MediExpress::loadMedicinesFromCsv" name="MediExpress::loadMedicinesFromCsv">
-<area shape="rect" id="Node000001" title="Carga medicamentos desde un fichero CSV." alt="" coords="235,5,423,48"/>
-<area shape="rect" id="Node000002" href="$class_medi_express.html#a749cfbe6b5b56cae56158dd2afd12c8c" title="Constructor con rutas a los ficheros CSV." alt="" coords="5,13,187,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,27,187,29,187,24,222,26"/>
-</map>
