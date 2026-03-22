@@ -35,7 +35,8 @@ add_executable(MisTests
  ${ALL_SOURCES} # Toda la lógica SIN el main.cpp original
 )
 # Configuración de Includes y Librerías
-target_include_directories(MisTests PRIVATE src)
+target_include_directories(MiPrograma PRIVATE include)
+target_include_directories(MisTests PRIVATE include)
 target_link_libraries(MisTests GTest::gtest_main)
 # Integración con el explorador de tests de VS Code
 include(GoogleTest)
