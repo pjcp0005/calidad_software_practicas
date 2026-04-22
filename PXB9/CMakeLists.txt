@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 # Nombre del proyecto
-project(Practica3_Tests CB9)
+project(Practica3_Tests CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # --- CORRECCIONES PARA LABORATORIO (WINDOWS/MINGW) ---
