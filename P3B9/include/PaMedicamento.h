@@ -51,17 +51,23 @@ public:
 
     /**
      * @brief Operador de igualdad. Compara por identificador numérico.
-     * @param object Objeto PaMedicamento con el que comparar.
+     * @param lhs Operando izquierdo.
+     * @param rhs Operando derecho.
      * @return true si ambos medicamentos tienen el mismo id numérico; false en caso contrario.
      */
-    bool operator==(const PaMedicamento &object) const;
+    friend bool operator==(const PaMedicamento &lhs, const PaMedicamento &rhs) {
+        return lhs.m_id_num == rhs.m_id_num;
+    }
 
     /**
      * @brief Operador menor que. Compara por identificador numérico.
-     * @param object Objeto PaMedicamento con el que comparar.
-     * @return true si el id numérico de este objeto es menor que el del parámetro.
+     * @param lhs Operando izquierdo.
+     * @param rhs Operando derecho.
+     * @return true si el id numérico de lhs es menor que el de rhs.
      */
-    bool operator<(const PaMedicamento &object) const;
+    friend bool operator<(const PaMedicamento &lhs, const PaMedicamento &rhs) {
+        return lhs.m_id_num < rhs.m_id_num;
+    }
 
     /**
      * @brief Devuelve el identificador numérico del medicamento.

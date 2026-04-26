@@ -48,33 +48,6 @@ PaMedicamento::~PaMedicamento(){
 };
 
 /**
- * Operadores
- */
-/**
- * @brief operador igual igual
- * @param object Objeto PaMedicamento con el que se va a comparar
- * @return Devuelve true si los objetos son iguales, false en caso contrario
- */
-bool PaMedicamento::operator==(const PaMedicamento &object) const {
-    bool equal = false;
-
-    if(m_id_num == object.m_id_num){
-        equal = true;
-    }
-
-    return equal;
-}
-
-/**
- * @brief operador menor que
- * @param object Objeto PaMedicamento con el que se va a comparar
- * @return Devuelve true si el objeto que llama al operador es menor que el objeto pasado por parametro, false en caso contrario
- */
-bool PaMedicamento::operator<(const PaMedicamento &object) const{
-    return (m_id_num < object.m_id_num);
-};
-
-/**
  * Getters
  */
 /**
