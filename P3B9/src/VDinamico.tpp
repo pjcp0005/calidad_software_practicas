@@ -99,11 +99,7 @@ void VDinamico<T>::freeMemory() {
  * @post Constructor por defecto que inicializa el vector con tamanyo fisico 1 y tamanyo logico vacio 
  */
 template<class T>
-VDinamico<T>::VDinamico(){
-    m_tamaf = 1;
-    m_tamal = 0;
-    // Inicializo el victor con tamanyo fisico 1 y vacio
-    v = new T[m_tamaf];
+VDinamico<T>::VDinamico() : m_tamaf(1), m_tamal(0), v(new T[1]) {
 };
 
 /**
@@ -113,13 +109,9 @@ VDinamico<T>::VDinamico(){
  * @post Constructor con parametros que inicializa el vector con tamanyo logico tama y con los elementos iguales a dato
  */
 template<class T>
-VDinamico<T>::VDinamico(unsigned int tama, T &dato){
-    m_tamaf = tama;
-    m_tamal = tama;
-    //Redondeo a potencia de 2
+VDinamico<T>::VDinamico(unsigned int tama, T &dato) : m_tamaf(tama), m_tamal(tama), v(nullptr) {
     roundToPowerOf2(m_tamaf);
     v = new T[m_tamaf];
-
     for(unsigned int i = 0; i < m_tamal; ++i){
         v[i] = dato;
     }
@@ -132,12 +124,7 @@ VDinamico<T>::VDinamico(unsigned int tama, T &dato){
  * @post Copia el vector dinamico orig en el vector que llama al constructor
  */
 template<class T>
-VDinamico<T>::VDinamico(const VDinamico<T> &orig) {
-    m_tamaf = orig.m_tamaf;
-    m_tamal = orig.m_tamal;
-
-    v = new T[m_tamaf];
-
+VDinamico<T>::VDinamico(const VDinamico<T> &orig) : m_tamaf(orig.m_tamaf), m_tamal(orig.m_tamal), v(new T[orig.m_tamaf]) {
     for (unsigned int i = 0; i < m_tamal; i++) {
         v[i] = orig.v[i];
     }
