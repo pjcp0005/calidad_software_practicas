@@ -184,7 +184,7 @@ typename ListaEnlazada<T>::Iterator ListaEnlazada<T>::iterator() const{
   */
 template<class T>
 void ListaEnlazada<T>::insertAtBiginning(const T &data){
-    Node *newNode = new Node(data, m_head);
+    auto *newNode = new Node(data, m_head);
     m_head = newNode;
 
     if(m_tail == nullptr){
@@ -201,7 +201,7 @@ void ListaEnlazada<T>::insertAtBiginning(const T &data){
  */
 template<class T>
 void ListaEnlazada<T>::insertAtEnd(const T &data){
-    Node *newNode = new Node(data, nullptr);
+    auto *newNode = new Node(data, nullptr);
 
     if(m_head == nullptr){
         m_head = m_tail = newNode;
@@ -240,7 +240,7 @@ void ListaEnlazada<T>::InsertBefore(Iterator &it, const T &data){
         throw std::out_of_range("Iterador no encontrado en la lista");
     }
 
-    Node *newNode = new Node(data, it.m_node);
+    auto *newNode = new Node(data, it.m_node);
     prev->next = newNode;
     ++m_size;
 };
@@ -257,7 +257,7 @@ void ListaEnlazada<T>::insertAfter(Iterator &it, const T &data){
         throw std::invalid_argument("El iterador no apunta a nada (no se puede insertar antes del final)");
     }
 
-    Node *newNode = new Node(data, it.m_node->next);
+    auto *newNode = new Node(data, it.m_node->next);
     it.m_node->next = newNode;
 
     if(it.m_node == m_tail){
