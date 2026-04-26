@@ -37,13 +37,13 @@ private:
          * @param aData Dato a almacenar.
          * @param nextNode Puntero al siguiente nodo (nullptr por defecto).
          */
-        Node(const T &aData, Node *nextNode = nullptr)
+        explicit Node(const T &aData, Node *nextNode = nullptr)
             : m_data(aData), next(nextNode) {};
 
         /**
          * @brief Destructor del nodo.
          */
-        ~Node() {};
+        ~Node() = default;
     };
 
     Node  *m_head; ///< Puntero al primer nodo de la lista (nullptr si vacía).
@@ -71,7 +71,7 @@ public:
          * @brief Constructor del iterador.
          * @param aNode Nodo inicial al que apunta el iterador (nullptr por defecto).
          */
-        Iterator (Node  *aNode=nullptr);
+        explicit Iterator (Node  *aNode=nullptr);
 
         /**
          * @brief Comprueba si el iterador ha llegado al final de la lista.
@@ -127,10 +127,24 @@ public:
 
     /**
      * @brief Operador de suma. Concatena dos listas en una nueva.
-     * @param aux Lista enlazada a concatenar a la derecha.
-     * @return Nueva lista con los elementos de this seguidos de los de aux.
+     * @param lhs Lista izquierda.
+     * @param rhs Lista derecha a concatenar.
+     * @return Nueva lista con los elementos de lhs seguidos de los de rhs.
      */
-    ListaEnlazada<T>  operator+(const ListaEnlazada<T>  &aux);
+    friend ListaEnlazada<T> operator+(const ListaEnlazada<T> &lhs, const ListaEnlazada<T> &rhs) {
+        ListaEnlazada<T> result;
+        Node *current = lhs.m_head;
+        while(current != nullptr){
+            result.insertAtEnd(current->m_data);
+            current = current->next;
+        }
+        current = rhs.m_head;
+        while(current != nullptr){
+            result.insertAtEnd(current->m_data);
+            current = current->next;
+        }
+        return result;
+    }
 
     /**
      * @brief Devuelve un iterador apuntando al primer nodo.
@@ -198,7 +212,7 @@ public:
      * @brief Devuelve el número de elementos de la lista.
      * @return Número de elementos almacenados.
      */
-    int size(){ return m_size;};
+    int size() const { return m_size; }
 
     /**
      * @brief Concatena otra lista al final de esta (modifica el objeto actual).

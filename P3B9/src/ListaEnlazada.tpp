@@ -161,30 +161,6 @@ ListaEnlazada<T> &ListaEnlazada<T>::operator=(const ListaEnlazada<T> &aux) {
 };
 
 /**
- * @brief Sobrecarga del operador de suma para concatenar dos listas enlazadas
- * @param aux Lista enlazada que se va a concatenar.
- * @return Nueva lista enlazada que es la concatenación de las dos listas.
- */
-template<class T>
-ListaEnlazada<T> ListaEnlazada<T>::operator+(const ListaEnlazada<T> &aux){
-    ListaEnlazada<T> result;
-
-    Node *current = m_head;
-    while(current != nullptr){
-        result.insertAtEnd(current->m_data);
-        current = current->next;
-    }
-
-    current = aux.m_head;
-    while(current != nullptr){
-        result.insertAtEnd(current->m_data);
-        current = current->next;
-    }
-
-    return result;
-}
-
-/**
  * Iterador
  */
 
