@@ -18,99 +18,86 @@
  * Metodos privados
  */
 
-VDinamico<PaMedicamento> MediExpress::loadMedicinesFromCsv(const std::string &csvPath){
+/**
+ * @brief Parsea una fila CSV de medicamentos y devuelve un PaMedicamento.
+ * @param row Fila en formato "id_num;id_alpha;nombre".
+ * @return PaMedicamento construido con los datos de la fila.
+ */
+static PaMedicamento parseMedRow(const std::string& row) {
+    std::stringstream columns(row);
+    std::string idNum;
+    std::string idAlpha;
+    std::string name;
+    std::getline(columns, idNum, ';');
+    std::getline(columns, idAlpha, ';');
+    std::getline(columns, name, ';');
+    return PaMedicamento(std::stoi(idNum), idAlpha, name);
+}
 
-    std::ifstream is;
-    std::stringstream columns;
-    std::string row;
-    std::string idNum = "";
-    std::string idAlpha = "";
-    std::string name = "";
-
-    VDinamico<PaMedicamento> aux;
-
-    is.open(csvPath); // carpeta de proyecto
-    if (is.good()){
-
-        while (getline(is, row)){
-
-            // ¿Se ha leído una nueva fila?
-            if (row != ""){
-
-                columns.str(row);
-
-                // formato de fila: id_number;id_alpha;nombre;
-
-                getline(columns, idNum, ';'); // leemos caracteres hasta encontrar y omitir ';'
-                getline(columns, idAlpha, ';');
-                getline(columns, name, ';');
-
-                row = "";
-                columns.clear();
-
-                PaMedicamento med(std::stoi(idNum), idAlpha, name);
-                aux.insert(med);
-            }
-        }
-
-        is.close();
-
-    } else {
-        
+/**
+ * @brief Normaliza los saltos de línea de una cadena sustituyendo '\r' por '\n'.
+ * @param content Cadena a normalizar (modificada en el lugar).
+ */
+static void normalizeLineEndings(std::string& content) {
+    for (char& c : content) {
+        if (c == '\r') c = '\n';
     }
+}
 
+/**
+ * @brief Parsea una fila CSV de laboratorios y devuelve un Laboratorio.
+ * @param row Fila en formato "id;nombre;dirección;cp;ciudad".
+ * @return Laboratorio construido con los datos de la fila.
+ */
+static Laboratorio parseLabRow(const std::string& row) {
+    std::stringstream columns(row);
+    std::string idStr;
+    std::string nombre;
+    std::string direccion;
+    std::string cod_postal;
+    std::string localidad;
+    std::getline(columns, idStr,      ';');
+    std::getline(columns, nombre,     ';');
+    std::getline(columns, direccion,  ';');
+    std::getline(columns, cod_postal, ';');
+    std::getline(columns, localidad);
+    return Laboratorio(std::stoi(idStr), nombre, direccion, cod_postal, localidad);
+}
+
+VDinamico<PaMedicamento> MediExpress::loadMedicinesFromCsv(const std::string &csvPath) const{
+    std::ifstream is(csvPath);
+    VDinamico<PaMedicamento> aux;
+    if (!is.good()) return aux;
+    std::string row;
+    while (std::getline(is, row)) {
+        if (!row.empty()) aux.insert(parseMedRow(row));
+    }
     return aux;
-};
+}
 
-ListaEnlazada<Laboratorio> MediExpress::loadLabFromCsv(const std::string &csvPath){
+ListaEnlazada<Laboratorio> MediExpress::loadLabFromCsv(const std::string &csvPath) const{
     ListaEnlazada<Laboratorio> aux;
-
     std::ifstream is(csvPath, std::ios::binary);
     if (!is.is_open()) {
         std::cerr << "[ERROR] No puedo abrir: " << csvPath << "\n";
         return aux;
     }
-
-    //Leer todo el archivo a memoria
-    std::string content((std::istreambuf_iterator<char>(is)),
-                         std::istreambuf_iterator<char>());
-
-    //Normalizar finales de línea: \r\n -> \n y \r -> \n
-    for (char &c : content) {
-        if (c == '\r') c = '\n';
-    }
-
-    //Parsear línea a línea
+    std::string content((std::istreambuf_iterator<char>(is)), std::istreambuf_iterator<char>());
+    normalizeLineEndings(content);
     std::stringstream ss(content);
     std::string row;
     while (std::getline(ss, row, '\n')) {
-        if (row.empty()) continue;
-
-        std::stringstream columns(row);
-        std::string idStr, nombre, direccion, cod_postal, localidad;
-
-        std::getline(columns, idStr,      ';');
-        std::getline(columns, nombre,     ';');
-        std::getline(columns, direccion,  ';');
-        std::getline(columns, cod_postal, ';');
-        std::getline(columns, localidad);
-
-        if (idStr.empty()) continue;
-
-        Laboratorio lab(std::stoi(idStr), nombre, direccion, cod_postal, localidad);
-        aux.insertAtEnd(lab);
+        if (!row.empty() && row[0] != ';') aux.insertAtEnd(parseLabRow(row));
     }
-
     return aux;
-};
+}
 
-void MediExpress::autoLinkMedications(){
-    unsigned int index  = 0;
+void MediExpress::autoLinkMedications() const{
     const unsigned int siz = m_med.len();
-
-    for (auto it = m_lab.iterator(); !it.isEnd() && index < siz; it.next()) {
-        for (int pairIndex = 0; pairIndex < 2 && index < siz; ++pairIndex, ++index) {
-            m_med[index].setServidoPor(&it.data());
+    unsigned int labIdx = 0;
+    for (auto it = m_lab.iterator(); !it.isEnd() && (labIdx * 2) < siz; it.next(), ++labIdx) {
+        for (unsigned int pair = 0; pair < 2 && (labIdx * 2 + pair) < siz; ++pair) {
+            m_med[labIdx * 2 + pair].setServidoPor(&it.data());
         }
     }
 };
@@ -133,7 +120,7 @@ MediExpress::~MediExpress() = default;
  * Metodos
  */
 
-void MediExpress::suministrarMed(PaMedicamento& med, Laboratorio& lab){
+void MediExpress::suministrarMed(const PaMedicamento& med, Laboratorio& lab) const{
     bool labExists = false;
 
     for (auto it = m_lab.iterator(); !it.isEnd(); it.next()) {
@@ -154,7 +141,7 @@ void MediExpress::suministrarMed(PaMedicamento& med, Laboratorio& lab){
     }
 }
 
-Laboratorio* MediExpress::buscarLab(const std::string &labName){
+Laboratorio* MediExpress::buscarLab(std::string_view labName){
     for(auto it = m_lab.iterator(); !it.isEnd(); it.next()){
         if(it.data().getLabName()==labName){
             return &it.data();

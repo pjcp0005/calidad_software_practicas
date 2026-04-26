@@ -31,20 +31,20 @@ class MediExpress{
          * @param csvPath Ruta al fichero CSV con los datos de medicamentos (formato: id_num;id_alpha;nombre).
          * @return VDinamico con todos los medicamentos leídos del fichero.
          */
-        VDinamico<PaMedicamento> loadMedicinesFromCsv(const std::string &csvPath);
+        VDinamico<PaMedicamento> loadMedicinesFromCsv(const std::string &csvPath) const;
 
         /**
          * @brief Carga laboratorios desde un fichero CSV.
          * @param csvPath Ruta al fichero CSV con los datos de laboratorios (formato: id;nombre;dirección;cp;ciudad).
          * @return ListaEnlazada con todos los laboratorios leídos del fichero.
          */
-        ListaEnlazada<Laboratorio> loadLabFromCsv(const std::string &csvPath);
+        ListaEnlazada<Laboratorio> loadLabFromCsv(const std::string &csvPath) const;
 
         /**
          * @brief Enlaza automáticamente medicamentos con laboratorios.
          * @post Asigna a cada laboratorio 2 medicamentos consecutivos del vector, por orden de carga.
          */
-        void autoLinkMedications();
+        void autoLinkMedications() const;
 
     public:
         /**
@@ -71,14 +71,14 @@ class MediExpress{
          * @param lab Laboratorio que suministrará el medicamento.
          * @post Si el laboratorio existe en el sistema, se enlaza con el primer medicamento coincidente sin modificar el resto.
          */
-        void suministrarMed(PaMedicamento &med, Laboratorio &lab);
+        void suministrarMed(const PaMedicamento &med, Laboratorio &lab) const;
 
         /**
          * @brief Busca un laboratorio por nombre exacto.
          * @param labName Nombre exacto del laboratorio a buscar.
          * @return Puntero al Laboratorio encontrado, o nullptr si no existe ninguno con ese nombre.
          */
-        Laboratorio* buscarLab(const std::string &labName);
+        Laboratorio* buscarLab(std::string_view labName);
 
         /**
          * @brief Busca laboratorios cuya ciudad contenga el texto dado (sin distinción de mayúsculas).
