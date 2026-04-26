@@ -20,7 +20,7 @@ Laboratorio::Laboratorio(){
     m_city = "";
 };
 
-Laboratorio::Laboratorio(int id, const std::string &nombre_lab, const std::string &direccion, const std::string &cod_postal, const std::string &localidad) {
+Laboratorio::Laboratorio(int id, std::string_view nombre_lab, std::string_view direccion, std::string_view cod_postal, std::string_view localidad) {
     m_id = id;
     m_lab_name = nombre_lab;
     m_address = direccion;
@@ -28,20 +28,11 @@ Laboratorio::Laboratorio(int id, const std::string &nombre_lab, const std::strin
     m_city = localidad;
 }
 
-bool Laboratorio::operator==(Laboratorio lab) const{
+bool Laboratorio::operator==(const Laboratorio& lab) const{
     if(static_cast<int>(m_id) == lab.getId()){
         return true;
     }
     return false;
-}
-
-std::ostream& operator<<(std::ostream& os, const Laboratorio& l) {
-    os << "[id=" << l.getId()
-       << "] " << l.getLabName()
-       << " | " << l.getAddress()
-       << " | " << l.getPostalCode()
-       << " | " << l.getCity();
-    return os;
 }
 
 /**
@@ -74,18 +65,18 @@ void Laboratorio::setId(int id) {
     m_id = id;
 }
 
-void Laboratorio::setLabName(const std::string &nombre_lab) {
+void Laboratorio::setLabName(std::string_view nombre_lab) {
     m_lab_name = nombre_lab;
 }
 
-void Laboratorio::setAddress(const std::string &direccion) {
+void Laboratorio::setAddress(std::string_view direccion) {
     m_address = direccion;
 }
 
-void Laboratorio::setPostalCode(const std::string &cod_postal) {
+void Laboratorio::setPostalCode(std::string_view cod_postal) {
     m_postal_code = cod_postal;
 }
 
-void Laboratorio::setCity(const std::string &localidad) {
+void Laboratorio::setCity(std::string_view localidad) {
     m_city = localidad;
 }

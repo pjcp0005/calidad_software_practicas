@@ -12,6 +12,7 @@
 #define LABORATORIO_H
 
 #include <string>
+#include <string_view>
 #include <ostream>
 
 /**
@@ -42,10 +43,10 @@ public:
      * @param localidad Ciudad donde está ubicado el laboratorio.
      */
     Laboratorio(int id,
-                const std::string &nombre_lab,
-                const std::string &direccion,
-                const std::string &cod_postal,
-                const std::string &localidad);
+                std::string_view nombre_lab,
+                std::string_view direccion,
+                std::string_view cod_postal,
+                std::string_view localidad);
 
     /**
      * @brief Destructor por defecto.
@@ -58,7 +59,7 @@ public:
      * @param lab Laboratorio con el que comparar.
      * @return true si ambos laboratorios tienen el mismo id; false en caso contrario.
      */
-    bool operator==(Laboratorio lab) const;
+    bool operator==(const Laboratorio& lab) const;
 
     /**
      * @brief Sobrecarga del operador de salida. Imprime los datos del laboratorio.
@@ -66,7 +67,14 @@ public:
      * @param l Laboratorio a imprimir.
      * @return Referencia al flujo de salida.
      */
-    friend std::ostream& operator<<(std::ostream& os, const Laboratorio& l);
+    friend std::ostream& operator<<(std::ostream& os, const Laboratorio& l) {
+        os << "[id=" << l.getId()
+           << "] " << l.getLabName()
+           << " | " << l.getAddress()
+           << " | " << l.getPostalCode()
+           << " | " << l.getCity();
+        return os;
+    }
 
     /**
      * @brief Devuelve el identificador numérico del laboratorio.
@@ -108,25 +116,25 @@ public:
      * @brief Establece el nombre del laboratorio.
      * @param nombre_lab Nuevo nombre del laboratorio.
      */
-    void setLabName(const std::string &nombre_lab);
+    void setLabName(std::string_view nombre_lab);
 
     /**
      * @brief Establece la dirección del laboratorio.
      * @param direccion Nueva dirección del laboratorio.
      */
-    void setAddress(const std::string &direccion);
+    void setAddress(std::string_view direccion);
 
     /**
      * @brief Establece el código postal del laboratorio.
      * @param cod_postal Nuevo código postal del laboratorio.
      */
-    void setPostalCode(const std::string &cod_postal);
+    void setPostalCode(std::string_view cod_postal);
 
     /**
      * @brief Establece la ciudad del laboratorio.
      * @param localidad Nueva ciudad del laboratorio.
      */
-    void setCity(const std::string &localidad);
+    void setCity(std::string_view localidad);
 };
 
 #endif // LABORATORIO_H
