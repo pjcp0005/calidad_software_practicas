@@ -28,13 +28,6 @@ Laboratorio::Laboratorio(int id, std::string_view nombre_lab, std::string_view d
     m_city = localidad;
 }
 
-bool Laboratorio::operator==(const Laboratorio& lab) const{
-    if(static_cast<int>(m_id) == lab.getId()){
-        return true;
-    }
-    return false;
-}
-
 /**
  * Getters
  */

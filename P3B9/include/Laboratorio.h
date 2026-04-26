@@ -59,7 +59,9 @@ public:
      * @param lab Laboratorio con el que comparar.
      * @return true si ambos laboratorios tienen el mismo id; false en caso contrario.
      */
-    bool operator==(const Laboratorio& lab) const;
+    friend bool operator==(const Laboratorio& lhs, const Laboratorio& rhs) {
+        return lhs.m_id == rhs.m_id;
+    }
 
     /**
      * @brief Sobrecarga del operador de salida. Imprime los datos del laboratorio.
