@@ -12,6 +12,7 @@
 #define PAMEDICAMENTO_H
 
 #include <string>
+#include <string_view>
 
 class Laboratorio;
 
@@ -41,7 +42,7 @@ public:
      * @param id_alpha Identificador alfanumérico del medicamento.
      * @param name Nombre del medicamento.
      */
-    PaMedicamento(int id_num, std::string id_alpha, std::string name);
+    PaMedicamento(int id_num, std::string_view id_alpha, std::string_view name);
 
     /**
      * @brief Destructor.
@@ -103,13 +104,13 @@ public:
      * @brief Establece el identificador alfanumérico del medicamento.
      * @param id_alpha Nuevo identificador alfanumérico.
      */
-    void setIdAlpha(std::string id_alpha);
+    void setIdAlpha(std::string_view id_alpha);
 
     /**
      * @brief Establece el nombre del medicamento.
      * @param name Nuevo nombre del medicamento.
      */
-    void setName(std::string name);
+    void setName(std::string_view name);
 
     /**
      * @brief Establece el laboratorio que suministra el medicamento.

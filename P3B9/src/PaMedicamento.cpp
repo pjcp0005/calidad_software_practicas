@@ -30,7 +30,7 @@ PaMedicamento::PaMedicamento(){
  * @param name Nombre del medicamento
  * @post Constructor con parametros que inicializa los atributos con los valores pasados por parametro
  */
-PaMedicamento::PaMedicamento(int idNum, std::string idAlpha, std::string name){
+PaMedicamento::PaMedicamento(int idNum, std::string_view idAlpha, std::string_view name){
     m_id_num = idNum;
     m_id_alpha = idAlpha;
     m_name = name;
@@ -95,7 +95,7 @@ void PaMedicamento::setIdNum(int num){
  * @param alphanumeric Nuevo identificador alfanumerico del medicamento
  * @post Actualiza el identificador alfanumerico del medicamento
  */
-void PaMedicamento::setIdAlpha(std::string alphanumeric){
+void PaMedicamento::setIdAlpha(std::string_view alphanumeric){
     m_id_alpha = alphanumeric;
 };
 
@@ -104,7 +104,7 @@ void PaMedicamento::setIdAlpha(std::string alphanumeric){
  * @param name Nuevo nombre del medicamento
  * @post Actualiza el nombre del medicamento
  */
-void PaMedicamento::setName(std::string name){
+void PaMedicamento::setName(std::string_view name){
     m_name = name;
 };
 
