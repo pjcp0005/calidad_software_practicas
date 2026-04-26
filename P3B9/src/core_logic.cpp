@@ -166,7 +166,7 @@ static void prueba_labs_aceites(const MediExpress& me) {
  * @brief Asigna dinámicamente medicamentos sin proveedor a laboratorios de Madrid.
  * @param me Sistema MediExpress sobre el que operar.
  */
-static void prueba_asignar_labs(MediExpress& me) {
+static void prueba_asignar_labs(const MediExpress& me) {
     separador("Asignar labs");
     ListaEnlazada<Laboratorio*> labsMadrid = me.buscarLabCiudad("Madrid");
     const unsigned int objetivo = 152;
