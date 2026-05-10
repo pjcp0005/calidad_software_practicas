@@ -195,3 +195,152 @@ TEST_F(SimulationTest, RunSimulation_ErrorHandling_MissingFiles) {
     EXPECT_FALSE(cerr_buffer.str().empty())
         << "Se esperaba un mensaje de error en std::cerr al faltar los ficheros CSV.";
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CAJA BLANCA — Caso 4: safe_read() — entrada válida (rama return true directo)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * @brief Caja Blanca: cubre la rama de lectura correcta de safe_read().
+ *
+ * Redirige std::cin a un stream con un entero válido.
+ * Verifica que safe_read() devuelve true y almacena el valor leído.
+ */
+TEST(SafeReadTest, ReturnsTrue_OnValidInput) {
+    std::istringstream input("42");
+    std::streambuf* orig = std::cin.rdbuf(input.rdbuf());
+
+    unsigned int val = 0;
+    bool result = safe_read(val);
+
+    std::cin.rdbuf(orig);
+
+    EXPECT_TRUE(result);
+    EXPECT_EQ(val, 42u);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CAJA BLANCA — Caso 5: safe_read() — EOF (rama return false)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * @brief Caja Blanca: cubre la rama EOF de safe_read().
+ *
+ * Redirige std::cin a un stream vacío para provocar EOF inmediato.
+ * Verifica que safe_read() devuelve false al detectar fin de fichero.
+ */
+TEST(SafeReadTest, ReturnsFalse_OnEOF) {
+    std::istringstream input("");
+    std::streambuf* orig = std::cin.rdbuf(input.rdbuf());
+
+    unsigned int val = 0;
+    bool result = safe_read(val);
+
+    std::cin.rdbuf(orig);
+
+    EXPECT_FALSE(result);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CAJA BLANCA — Caso 6: safe_read() — entrada inválida (rama clear+ignore)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * @brief Caja Blanca: cubre la rama de entrada inválida de safe_read().
+ *
+ * Redirige std::cin a un stream con texto no numérico.
+ * Verifica que safe_read() limpia el estado de error y devuelve true
+ * (error recuperable, el programa debe continuar).
+ */
+TEST(SafeReadTest, ReturnsTrue_OnInvalidInput) {
+    std::istringstream input("abc");
+    std::streambuf* orig = std::cin.rdbuf(input.rdbuf());
+
+    unsigned int val = 0;
+    bool result = safe_read(val);
+
+    std::cin.rdbuf(orig);
+
+    EXPECT_TRUE(result);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CAJA BLANCA — Caso 7: prueba_labs_aceites() — rama "if (!lab) continue"
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * @brief Caja Blanca: cubre la rama "if (!lab) continue" en prueba_labs_aceites().
+ *
+ * Con 5 medicamentos y 2 laboratorios, autoLinkMedications asigna lab a los 4
+ * primeros (2 por laboratorio). El quinto medicamento ("Aceite Esencial") queda
+ * sin laboratorio. Al buscar compuesto "aceite", getServidoPor() devuelve nullptr
+ * y se ejecuta el "continue", dejando labsUnicos vacío → imprime "(Ninguno)".
+ */
+TEST_F(SimulationTest, PruebaLabsAceites_SkipsNullLab) {
+    writeFile(TEST_MEDS,
+        "1;MED001;Paracetamol;\n"
+        "2;MED002;Ibuprofeno;\n"
+        "3;MED003;Amoxicilina;\n"
+        "4;MED004;Omeprazol;\n"
+        "5;MED005;Aceite Esencial;\n");
+    writeFile(TEST_LABS,
+        "1;FarmaGen S.L.;Calle Mayor 1;18001;Granada\n"
+        "2;HealthMed S.A.;Calle Alcala 10;28001;Madrid\n");
+
+    run_simulation(TEST_MEDS, TEST_LABS);
+
+    const std::string output = cout_buffer.str();
+    EXPECT_NE(output.find("(Ninguno)"), std::string::npos)
+        << "El med con aceite sin lab debe ser omitido, resultando en 0 laboratorios.";
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CAJA BLANCA — Caso 8: suministrarMed() — rama "if (labExists)" = false
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * @brief Caja Blanca: cubre la rama false de "if (labExists)" en suministrarMed().
+ *
+ * Con 3 medicamentos y 1 laboratorio, autoLinkMedications deja el tercero sin lab.
+ * Se llama a suministrarMed() con un Laboratorio externo (id=99) que NO está
+ * registrado en el sistema. El bucle de búsqueda no encuentra coincidencia,
+ * labExists queda false y el bloque de asignación no se ejecuta.
+ * El medicamento debe seguir sin laboratorio tras la llamada.
+ */
+TEST_F(SimulationTest, PruebaLabsAceites_DetectsDuplicateLab) {
+    // 2 meds con "aceite" vinculados al mismo lab (autoLink: 2 meds → 1 lab)
+    // Al procesar el 2º med, el inner loop encuentra el lab ya en labsUnicos
+    // → ejecuta línea 152: if (itL.data() == lab) { yaEsta = true; break; }
+    writeFile(TEST_MEDS,
+        "1;MED001;Aceite de Almendras;\n"
+        "2;MED002;Aceite de Oliva;\n");
+    writeFile(TEST_LABS,
+        "1;FarmaGen S.L.;Calle Mayor 1;18001;Granada\n");
+
+    run_simulation(TEST_MEDS, TEST_LABS);
+
+    const std::string output = cout_buffer.str();
+    EXPECT_NE(output.find("Laboratorios que suministran 'ACEITES': 1"), std::string::npos)
+        << "Ambos meds aceite tienen el mismo lab: debe haber 1 unico en labsUnicos.";
+}
+
+TEST_F(SimulationTest, SuministrarMed_NoOp_WhenLabNotInSystem) {
+    writeFile(TEST_MEDS,
+        "1;MED001;Paracetamol;\n"
+        "2;MED002;Ibuprofeno;\n"
+        "3;MED003;Omeprazol;\n");
+    writeFile(TEST_LABS,
+        "1;FarmaGen S.L.;Calle Mayor 1;18001;Granada\n");
+
+    MediExpress me(TEST_MEDS, TEST_LABS);
+
+    VDinamico<PaMedicamento*> sinLab = me.getMedicamSinLab();
+    ASSERT_EQ(sinLab.len(), 1u) << "Omeprazol (med 3) debe quedar sin lab tras autoLink.";
+
+    Laboratorio externalLab(99, "Lab Externo", "Calle Z", "00000", "Desconocida");
+    me.suministrarMed(*sinLab[0], externalLab);
+
+    VDinamico<PaMedicamento*> sinLabDespues = me.getMedicamSinLab();
+    EXPECT_EQ(sinLabDespues.len(), 1u)
+        << "suministrarMed no debe asignar nada si el lab no esta en el sistema.";
+}

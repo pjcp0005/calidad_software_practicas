@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 # Nombre del proyecto
-project(Practica3_Tests CXX)
+project(Practica4_Tests CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # --- CORRECCIONES PARA LABORATORIO (WINDOWS/MINGW) ---
@@ -41,3 +41,8 @@ target_link_libraries(MisTests GTest::gtest_main)
 # Integración con el explorador de tests de VS Code
 include(GoogleTest)
 gtest_discover_tests(MisTests)
+
+# --- CONFIGURACIÓN DE COBERTURA DE CÓDIGO (PRÁCTICA 4) ---
+# Activamos flags de coverage, debug (-g) y desactivamos optimizaciones (-O0)
+target_compile_options(MisTests PRIVATE --coverage -O0 -g)
+target_link_libraries(MisTests --coverage)

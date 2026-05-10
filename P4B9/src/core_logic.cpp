@@ -35,11 +35,11 @@ static void separador(const std::string &titulo) {
 }
 
 bool safe_read(unsigned int& value) {
-    if (std::cin >> value) return true; // Lectura correcta
-    if (std::cin.eof()) return false;   // EOF: terminar el programa
-    std::cin.clear();                   // Limpiar el estado de error
-    std::cin.ignore(10000, '\n');       // Descartar el resto de la línea
-    return true;                        // Continuar el programa
+    if (std::cin >> value) return true;
+    if (std::cin.eof()) return false;
+    std::cin.clear();                
+    std::cin.ignore(10000, '\n');    
+    return true;                     
 }
 
 /**
